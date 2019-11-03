@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Registro Personas</title>
+    <% include partials/head %>
+    <% include partials/menu %>
+</head>
+<hr>
+
+<body class="signup">
+    <div class="container">
+        <div class="col-sm-8 mx-auto">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h6 style="text-align: center;">Agregar Nuevo Cliente</h6>
+                </div>
+
+                <div class="card-body">
+
+                    <% if(message.lenght > 0) { %>
+                    <div class="alert alert-danger">
+                        <%= message %>
+                    </div>
+                    <% } %>
+                    <form action="/persondata" method="POST">
+                        <div class="form-group">
+                            <input type="firstname" name="firstname" class="form-control" placeholder="Nombre"
+                                autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="lastname" name="lastname" class="form-control" placeholder="Apellido">
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="birthday" class="form-control" placeholder="Fecha de Nacimiento">
+                        </div>
+                        <div class="form-group">
+                            <input type="phonenumber" name="phonenumber" class="form-control" placeholder="Teléfono">
+                        </div>
+                        <div class="form-group">
+                            <input type="address" name="address" class="form-control" placeholder="Dirección">
+                        </div>
+                        <div class="form-group">
+                            <input type="gender" name="gender" class="form-control" placeholder="Género">
+                        </div>
+                        <div class="form-group">
+                            <input type="city" name="city" class="form-control" placeholder="Ciudad">
+                        </div>
+                        <div class="form-group">
+                            <input type="pronvince" name="pronvince" class="form-control" placeholder="Provincia">
+                        </div>
+                        <div class="form-group">
+                            <input type="county" name="county" class="form-control" placeholder="País">
+                        </div>
+                        <div class="form-group">
+                            <input type="postalcode" name="postalcode" class="form-control" placeholder="Código Postal">
+                        </div>
+                        <div class="form-group">
+                            <input type="emailadress" name="emailadress" class="form-control"
+                                placeholder="Correo Electrónico">
+                        </div>
+                        <input type="submit" class="btn btn-primary btn-block">
+                    </form>
+                    <hr>
+                    <a href="/profile" class="btn btn-primary btn-block">
+                        <span class="fa fa-user"></span> Volver al Perfil
+                    </a>
+                    <a href="/persondata" class="btn btn-primary btn-block">
+                        <span class="fa fa-user"></span> Ver Registros
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<% include partials/scripts %>
+
+</html>
