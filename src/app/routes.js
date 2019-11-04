@@ -37,11 +37,37 @@ module.exports = (app, passport) => {
             message: req.flash('signupMessage')
         });
     });
+  
     app.get('/persondata', (req, res) => {
+        
         res.render('persondata', {
-            person: req.person
+            person:req.person
         });
     });
+
+      app.post('/persondata', (req, res) => {
+        console.log('POST /persondata')
+        console.log(req.body)
+    
+        const person = new Person()
+        person.firstname = req.body.firstname
+        person.lastname = req.body.lastname
+        person.birthday = req.body.birthday
+        person.phonenumber = req.body.phonenumber
+        person.address = req.body.address
+        person.gender = req.body.gender
+        person.city = req.body.city
+        person.province = req.body.province
+        person.country = req.body.country
+        person.postalcode = req.body.postalcode
+        person.emailadress = req.body.emailadress
+    
+        person.save((err, personStored) => {
+            if (err) res.status(500).send({ message: `Error al guardar registros: ${err}` })
+    
+            res.status(200).send({ person: personStored })
+        })
+    })
 
 
     app.get('/logout', (req, res) => {

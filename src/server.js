@@ -40,39 +40,7 @@ app.use(flash());
 
 // routes 
 // Guardar Personas o Clientes en mongodb
-const Person = require('./app/models/person');
 
-app.get('/persondata', async (req, res) => {
-    const pers = await Person.find();
-    console.log(pers);
-    res.render('persondata', {
-        pers
-    });
-});
-
-app.post('/persondata', (req, res) => {
-    console.log('POST /persondata')
-    console.log(req.body)
-
-    const person = new Person()
-    person.firstname = req.body.firstname
-    person.lastname = req.body.lastname
-    person.birthday = req.body.birthday
-    person.phonenumber = req.body.phonenumber
-    person.address = req.body.address
-    person.gender = req.body.gender
-    person.city = req.body.city
-    person.province = req.body.province
-    person.country = req.body.country
-    person.postalcode = req.body.postalcode
-    person.emailadress = req.body.emailadress
-
-    person.save((err, personStored) => {
-        if (err) res.status(500).send({ message: `Error al guardar registros: ${err}` })
-
-        res.status(200).send({ person: personStored })
-    })
-})
 
 require('./app/routes')(app, passport);
 
