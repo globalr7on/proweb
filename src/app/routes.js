@@ -37,38 +37,25 @@ module.exports = (app, passport) => {
             message: req.flash('signupMessage')
         });
     });
-  
-    app.get('/persondata', (req, res) => {
-        
+//Modulo de Personas -------------------------------------
+
+    const Person = require('./models/person');
+
+    app.get('/persondata', async (req, res) => {
+        const Person = await Person.find();
         res.render('persondata', {
-            person:req.person
+            Person
         });
     });
 
-      app.post('/persondata', (req, res) => {
-        console.log('POST /persondata')
-        console.log(req.body)
-    
-        const person = new Person()
-        person.firstname = req.body.firstname
-        person.lastname = req.body.lastname
-        person.birthday = req.body.birthday
-        person.phonenumber = req.body.phonenumber
-        person.address = req.body.address
-        person.gender = req.body.gender
-        person.city = req.body.city
-        person.province = req.body.province
-        person.country = req.body.country
-        person.postalcode = req.body.postalcode
-        person.emailadress = req.body.emailadress
-    
-        person.save((err, personStored) => {
-            if (err) res.status(500).send({ message: `Error al guardar registros: ${err}` })
-    
-            res.status(200).send({ person: personStored })
-        })
-    })
+     app.post('/persondata', async (req, res) => {
+        const persons = await new Person(req.body); 
+        persons.save();
+        res.status(200).send({ person: personStored })
+        res.send('recibido');
+     });
 
+//---------------------------------------------------------
 
     app.get('/logout', (req, res) => {
         req.logout();
