@@ -39,12 +39,13 @@ module.exports = (app, passport) => {
     });
 //Modulo de Personas -------------------------------------
 
-    const Person = require('./models/person');
+    const Persons = require('./models/person');
 
     app.get('/persondata', async (req, res) => {
-        const Person = await Person.find();
+        const Person_1 = await Persons.find();
+        console.log(Person_1);
         res.render('persondata', {
-            Person
+            Person_1
         });
     });
 

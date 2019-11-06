@@ -6,9 +6,6 @@
   <% include partials/head %>
   <% include partials/menu %>
 </head>
-<pre>
-  <%= person %>
-</pre>
 <hr>
 <body class="signup">
   <div class="container">
@@ -18,8 +15,7 @@
           <h6 style="text-align: center;">Lista de Clientes</h6>
         </div>
         <div class="card-body">
-      
-            <strong>id</strong>:<br>
+             <strong>id</strong>: <%= Person_1._id %> <br>
             <strong>Nombre</strong>: Victor <br>
             <strong>Apellido</strong>: Ramirez <br>
             <strong>Fecha de Nacimiento</strong>: 08/06/1980<br>
@@ -66,13 +62,15 @@
               </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
+                <% for (var i = 0; i < Person_1.length; i++) { %>
+                   <tr>
+                      <td><%= i + 1 %></td>
+                      <td> <%= Person_1[i].firstname%></td>
+                      <td> <%= Person_1[i].lastname%></td>
+                      <td> <%= Person_1[i].phonenumber%></td>
+                      <td> <%= Person_1[i].emailadress%></td>
+                    </tr>
+                <% } %>               
             </tbody>
           </table>
 
