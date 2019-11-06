@@ -50,10 +50,10 @@ module.exports = (app, passport) => {
     });
 
      app.post('/persondata', async (req, res) => {
-        const persons = await new Person(req.body); 
-        persons.save();
-        res.status(200).send({ person: personStored })
-        res.send('recibido');
+        const Person_2 = await new Persons(req.body); 
+        Person_2.save();
+        req.flash('Guardado')
+        res.redirect('/persondata')
      });
 
 //---------------------------------------------------------

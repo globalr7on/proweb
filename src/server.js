@@ -36,6 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+
 // routes 
 // Guardar Personas o Clientes en mongodb
 
