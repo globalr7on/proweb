@@ -42,6 +42,11 @@ module.exports = (app, passport) => {
             message: req.flash('signupMessage')
         });
     });
+    app.get('/compania', (req, res) => {
+        res.render('compania', {
+            message: req.flash('signupMessage')
+        });
+    });
 //Modulo de Personas -------------------------------------
 
     const Persons = require('./models/person');
@@ -84,7 +89,26 @@ module.exports = (app, passport) => {
 
 //---------------------------------------------------------
 
+//Modulo de Compañia------------------------------------
 
+const Companies = require('./models/company');
+
+app.get('/companieshow', async (req, res) => {
+    const Compa_1 = await Companies.find();
+    console.log(Compa_1);
+    res.render('companieshow', {
+        Compa_1
+    });
+});
+
+ app.post('/companieshow', async (req, res) => {
+    const Compa_2 = await new Companies(req.body); 
+    Compa_2.save();
+    req.flash('Guardado')
+    res.redirect('/companieshow')
+ });
+
+//---------------------------------------------------------
 
     app.get('/logout', (req, res) => {
         req.logout();
