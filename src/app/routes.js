@@ -37,6 +37,11 @@ module.exports = (app, passport) => {
             message: req.flash('signupMessage')
         });
     });
+    app.get('/cargo', (req, res) => {
+        res.render('cargo', {
+            message: req.flash('signupMessage')
+        });
+    });
 //Modulo de Personas -------------------------------------
 
     const Persons = require('./models/person');
@@ -57,6 +62,29 @@ module.exports = (app, passport) => {
      });
 
 //---------------------------------------------------------
+
+//Modulo de Cargo -------------------------------------
+
+    const Cargos = require('./models/charge');
+
+    app.get('/chargeshow', async (req, res) => {
+        const Cargo_1 = await Cargos.find();
+        console.log(Cargo_1);
+        res.render('chargeshow', {
+            Cargo_1
+        });
+    });
+
+     app.post('/chargeshow', async (req, res) => {
+        const Cargo_2 = await new Cargos(req.body); 
+        Cargo_2.save();
+        req.flash('Guardado')
+        res.redirect('/chargeshow')
+     });
+
+//---------------------------------------------------------
+
+
 
     app.get('/logout', (req, res) => {
         req.logout();
