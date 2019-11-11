@@ -8,42 +8,9 @@
 </head>
 <hr>
 <body class="signup">
-  <div class="container">
-    <div class="col-sm-6 mx-auto">
-      <div class="card mt-5">
-        <div class="card-header">
-          <h6 style="text-align: center;">Lista de Clientes</h6>
-        </div>
-        <div class="card-body">
-             <strong>id</strong>: <br>
-            <strong>Nombre</strong>: Victor <br>
-            <strong>Apellido</strong>: Ramirez <br>
-            <strong>Fecha de Nacimiento</strong>: 08/06/1980<br>
-            <strong>Teléfono</strong>: +584128361369 <br>
-            <strong>Dirección</strong>:Calle Carabobo # 101<br>
-            <strong>Genero</strong>: Masculino <br>
-            <strong>Ciudad</strong>: Maracay <br>
-            <strong>Provincia</strong>: Aragua <br>
-            <strong>País</strong>: Venezuela<br>
-            <strong>Códico Postal</strong>:2103 <br>
-            <strong>Correo Electronico</strong>: vramh.developer@gmail.com <br>
-            
-          </p>
-          <a href="/person" class="btn btn-primary btn-block">
-            <span class="fa fa-user"></span> Registrar Nuevos
-          </a>
-          <a href="/profile" class="btn btn-primary btn-block">
-            <span class="fa fa-user"></span> Volver al Perfil
-          </a>
-          <hr>
-          <a href="/logout" class="btn btn-primary btn-block">
-            Salir
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
   <hr>
+  <hr>  
+
   <div class="container">
     <div class="col-sm-8 mx-auto ">
       <div class="card mt-6">
@@ -51,7 +18,7 @@
           <h6 style="text-align: center;">Listado</h6>
         </div>
         <div class="card-body">
-          <table class="table table-striped table-dark">
+          <table class="table table-striped">
             <thead>
               <tr>
                 <th scope="col">ID</th>
@@ -73,6 +40,16 @@
                 <% } %>               
             </tbody>
           </table>
+          <a href="/person" class="btn btn-primary btn-block">
+            <span class="fa fa-user"></span> Registrar Nuevos
+          </a>
+          <a href="/profile" class="btn btn-primary btn-block">
+            <span class="fa fa-user"></span> Volver al Perfil
+          </a>
+          <hr>
+          <a href="/logout" class="btn btn-primary btn-block">
+            Salir
+          </a>
         </div>
       </div>
     </div>
